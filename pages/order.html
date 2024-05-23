@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Woodex Order</title>
+
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/order.css" />
+
+    <!-- JavaScript -->
+    <script src="../assets/js/general.js" defer></script>
+    <script src="../assets/js/order.js" defer></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.svg" type="image/x-icon">
+
+    <!-- Íconos -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <main id="main">
+        <h1><a href="/">Woodex</a></h1>
+        
+        <aside class="ware">
+            <div class="confirm-order">
+                Order is requested
+            </div>
+
+            <div class="empty-cart">
+                <p>Nothing To order</p>
+                <a href="/">Go Back to shopping</a>
+            </div>
+
+            <div class="ware-cart">
+                <div class="ware-elements">
+                </div>
+                <p class="global__price global__price--shipping"><span>Shipping</span> <span>free</span></p>
+                <p class="global__price"><span>Total</span> <span class="quantity__total">0 DA</span></p>
+            </div>
+
+            <div class="order-cart">
+                <h2>Previeus Orders</h2>
+                <div class="ware-elements">
+                </div>
+                <p class="global__price prev_total"><span>Total</span> <span class="quantity__total">0 DA</span></p>
+            </div>
+        </aside>
+        
+
+        <form class="form">
+            <fieldset class="fieldset fieldset--contact">
+                <legend class="legend">Contact Information</legend>
+                <label class="label" for="phone-num">Phone Number</label>
+                <p class="field field--text">
+                    <i class="material-icons form__icons">phone</i>
+                    <input type="tel" name="phone-number" pattern="^(00213|\+213|0)(5|6|7)[0-9]{8}$" id="phone-num" class="input input--text input-phone" placeholder="+213667667067" maxlength="14" minlength="9"  required />
+                </p>
+            </fieldset>
+
+            <fieldset class="fieldset">
+                <legend class="legend">Shipping Address</legend>
+                <label class="label" for="address">Address</label>
+                <p class="field field--text">
+                    <i class="material-icons form__icons">home</i>
+                    <input type="text" name="address" id="address" class="input input--text input-address" placeholder="W.Street 216 ST west" required minlength="4" />
+                </p>
+
+                <div class="container-address-country">
+                    <div>
+                        <label class="label label__shipping--country" for="country">State</label>
+                        <div class="content-field__shipping--country">
+                            <p class="field field__shipping--country">
+                                <i class="material-icons form__icons">location_city</i>
+                                <select name="select-country" id="country" class="input select__shipping" required>
+                                    <option value="">Select a state</option>
+                                    <option value="Adrar">Adrar</option>
+                                    <option value="Ain Defla">Ain Defla</option>
+                                    <option value="Ain Temouchent">Ain Temouchent</option>
+                                    <option value="Alger">Alger</option>
+                                    <option value="Annaba">Annaba</option>
+                                    <option value="Batna">Batna</option>
+                                    <option value="Bechar">Bechar</option>
+                                    <option value="Bejaia">Bejaia</option>
+                                    <option value="Biskra">Biskra</option>
+                                    <option value="Blida">Blida</option>
+                                    <option value="Bordj Bou Arreridj">Bordj Bou Arreridj</option>
+                                    <option value="Bouira">Bouira</option>
+                                    <option value="Boumerdes">Boumerdes</option>
+                                    <option value="Chlef">Chlef</option>
+                                    <option value="Constantine">Constantine</option>
+                                    <option value="Djelfa">Djelfa</option>
+                                    <option value="El Bayadh">El Bayadh</option>
+                                    <option value="El Oued">El Oued</option>
+                                    <option value="El Tarf">El Tarf</option>
+                                    <option value="Ghardaia">Ghardaia</option>
+                                    <option value="Guelma">Guelma</option>
+                                    <option value="Illizi">Illizi</option>
+                                    <option value="Jijel">Jijel</option>
+                                    <option value="Khenchela">Khenchela</option>
+                                    <option value="Laghouat">Laghouat</option>
+                                    <option value="Mascara">Mascara</option>
+                                    <option value="Medea">Medea</option>
+                                    <option value="Mila">Mila</option>
+                                    <option value="Mostaganem">Mostaganem</option>
+                                    <option value="Oran">Oran</option>
+                                    <option value="Ouargla">Ouargla</option>
+                                    <option value="Oum el Bouaghi">Oum el Bouaghi</option>
+                                    <option value="Relizane">Relizane</option>
+                                    <option value="Saida">Saida</option>
+                                    <option value="Setif">Setif</option>
+                                    <option value="Sidi Bel Abbes">Sidi Bel Abbes</option>
+                                    <option value="Skikda">Skikda</option>
+                                    <option value="Souk Ahras">Souk Ahras</option>
+                                    <option value="Tamanghasset">Tamanghasset</option>
+                                    <option value="Tebessa">Tebessa</option>
+                                    <option value="Tiaret">Tiaret</option>
+                                    <option value="Tindouf">Tindouf</option>
+                                    <option value="Tipaza">Tipaza</option>
+                                    <option value="Tissemsilt">Tissemsilt</option>
+                                    <option value="Tizi Ouzou">Tizi Ouzou</option>
+                                    <option value="Tlemcen">Tlemcen</option>
+                                    <option value="Wilaya de M'Sila">Wilaya de M'Sila</option>
+                                    <option value="Wilaya de Naama">Wilaya de Naama</option>
+                                </select>
+                                <i class="material-icons icon--select">expand_more</i>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="label label__shipping--zipCode" for="zip-code">Postal Code</label>
+                        <p class="field field--text field__shipping--zipCode">
+                            <i class="material-icons form__icons">markunread_mailbox</i>
+                            <input type="text" name="postal-code" id="zip-code" pattern="[1-9][0-9]*$" class="input input--text input-zip" placeholder="15000" minlength="3" required />
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+            <p class="field field__saveInfo">
+                <input type="checkbox" name="s-info" id="save-info" class="saveInfo--pointer" />
+                <label class="label label__saveInfo saveInfo--pointer" for="save-info">I agree to all the information above</label>                
+            </p>
+            <div class="container__form__btn">
+                <button type="submit" class="form__btn">Order</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

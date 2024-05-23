@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="description" content="A online E-commerce sneakers shop made by dmaotech">
+  <meta name="keywords" content="sneakers, shoes, E-commerce, online, shop, style, product">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/product.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.svg">
+  
+  <title>Woodex product page</title>
+
+  <script src="../assets/js/general.js" defer></script>
+  <script src="../assets/js/product.js" defer></script>
+</head>
+<body>
+
+  <header class="header" data-header>
+    <div class="container">
+      <a href="/" class="logo">Woodex</a>
+
+      <div class="header-action">
+          <button class="header-action-btn cart-open-btn" aria-label="cart">
+            <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+            <span class="btn-badge">0</span>
+          </button>
+
+          <div class="cart">
+            <h2>Cart</h2>
+            <div class="cart-elements">
+            </div>
+            <button class="cart-btn cart-buy-btn" onclick="location.href='/pages/order.html'" aria-label="user">
+              Order
+              <ion-icon name="card-outline" aria-hidden="true"></ion-icon>
+            </button>
+            <button class="cart-btn cart-login-btn" onclick="location.href='/pages/login.html'" aria-label="user">
+              Login to Order
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+            </button>
+          </div>
+
+          <button class="header-action-btn user-btn" onclick="location.href='/pages/order.html'" aria-label="user">
+            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        
+
+
+        <div class="header-btns">
+          <button class="btn login-btn" onclick="location.href='/pages/login.html'" aria-label="user">
+            Login
+            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+          </button>
+          <button class="btn-outline register-btn" onclick="location.href='/pages/login.html?page=register'" aria-label="user">
+            Register
+            <ion-icon name="key-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main__container">
+    <section class="slider">
+      <div class="slider__img--container">
+        <img class="slider__img">
+      </div>
+    </section>
+
+    <section class="slider-focus">
+    </section>
+
+    <section class="product-content">
+      <article class="product-content--info">
+        <div class="product__info--text">
+          <p class="product__info--brand">Couch Company</p>
+          <h2 class="product__info--title">Fall Limited Edition Couches</h2>
+          <p class="product__info--description">
+            These low-profile couches are your perfect casual wear companion. Featuring a 
+            durable rubber outer sole, they’ll withstand everything the weather can offer.
+          </p>
+        </div>
+
+        <div class="info__pricing">
+          <span class="info__pricing--price">$125.00</span>
+          <span class="info__pricing--discount">10%</span>
+          <span class="info__pricing--before"><strike>$250.00</strike></span>
+        </div>
+      </article>
+
+      <div class="product-content__order">
+        <div class="order__quantity">
+          <input class="order__quantity--input" type="number" value="0" name="quantity">
+          <button class="order__quantity--btn minus" type="button" aria-label="button for remove quantity product"><img src="../assets/images/icon-minus.svg" alt=""></button>
+          <button class="order__quantity--btn plus" type="button" aria-label="button for add quantity product"><img src="../assets/images/icon-plus.svg" alt=""></button>
+        </div>
+
+        <button class="order__cart" type="button"><img class="order__cart--icon" src="../assets/images/icon-cart-white.svg" alt=""> Add to cart</button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
