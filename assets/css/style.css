@@ -168,6 +168,7 @@ body.active { overflow: hidden; }
   color: white;
   gap: 1rem;
   padding: .4rem 1rem;
+  border-radius: 10px;
 }
 
 .btn-outline {
@@ -178,7 +179,7 @@ body.active { overflow: hidden; }
   color: var(--tan-crayola);
   gap: 1rem;
   padding: .4rem 1rem;
-
+border-radius: 10px;
 
 }
 
@@ -705,9 +706,17 @@ padding-block: 10rem !important;}
   transition: var(--transition-1);
 }
 
+
+
 .product-card .card-action-btn:is(:hover, :focus) { color: var(--tan-crayola); }
-.product-card .card-action-btn:active {
+.product-card .card-action-btn:is(:active) {
   animation: click 200ms ease alternate;
+}
+
+.product-card .card-action-btn:is(:disabled, :active:disabled, :hover:disabled, :focus:disabled) {
+  color: black;
+  animation: none;
+  opacity: 0.4;
 }
 
 @keyframes click {

@@ -64,9 +64,11 @@ document.getElementById('product-form').addEventListener('submit', async (event)
     const descriptionInput = document.querySelector('.input[name="product-description"]');
     const imageInput = document.querySelector('.input[name="product-image"]');
     const priceInput = document.querySelector('.input[name="product-price"]');
+    const promotionInput = document.querySelector('.input[name="product-promotion"]');
     const brandInput = document.querySelector('.input[name="product-brand"]');
     const countInput = document.querySelector('.input[name="product-count"]');
     const categorySelect = document.querySelector('.select__category_product');
+
         
     const product = {
         price: parseFloat(priceInput.value),
@@ -88,6 +90,7 @@ document.getElementById('product-form').addEventListener('submit', async (event)
     formData.append('countInStock', parseInt(countInput.value));
     formData.append('category', categorySelect.value);
     formData.append('isFeatured', document.getElementById('isfutered').checked);
+    if (promotionInput.value) formData.append('promotion', promotionInput.value)
 
     const data = await APP.fetch(`products`, {
         actor: "admin",
@@ -290,6 +293,12 @@ async function initialProducts() {
                     <input type="number" name="product-price" class="input" placeholder="${product.price} DA" value="${product.price}" min=1 required />
                 </p>
 
+                <label class="label" >Promotion</label>
+                <p class="field field--text">
+                    <i class="material-icons form__icons">payments</i>
+                    <input type="number" name="product-promotion" class="input" placeholder="${product.promotion ? product.promotion+" DA" : "No Promotion"}" value="${product.promotion}" />
+                </p>
+
                 <label class="label" >Brand</label>
                 <p class="field field--text">
                     <i class="material-icons form__icons">branding_watermark</i>
@@ -330,6 +339,7 @@ async function initialProducts() {
             const nameInput = prodItem.querySelector('.input[name="product-name"]');
             const descriptionInput = prodItem.querySelector('.input[name="product-description"]');
             const priceInput = prodItem.querySelector('.input[name="product-price"]');
+            const promotionInput = prodItem.querySelector('.input[name="product-promotion"]');
             const brandInput = prodItem.querySelector('.input[name="product-brand"]');
             const countInput = prodItem.querySelector('.input[name="product-count"]');
             const categorySelect = prodItem.querySelector('.select__category_product');
@@ -340,6 +350,7 @@ async function initialProducts() {
                 description: descriptionInput.value,
                 price: parseFloat(priceInput.value),
                 brand: brandInput.value,
+                promotion: promotionInput.value || null,
                 countInStock: parseInt(countInput.value),
                 category: categorySelect.value,
                 isFeatured: isFuteredCheck.checked,

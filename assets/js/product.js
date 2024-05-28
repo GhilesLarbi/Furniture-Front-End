@@ -115,9 +115,17 @@ async function initialProducts() {
   document.querySelector(".product__info--brand").innerHTML = product.brand
   document.querySelector(".product__info--title").innerHTML = product.name
   document.querySelector(".product__info--description").innerHTML = product.description
-  if (product.promution) {
-    document.querySelector(".info__pricing--price").innerHTML = product.promution + " DA"
+  if (product.countInStock == 0) {
+    document.querySelector(".order__cart").setAttribute("disabled", "")
+    document.querySelector(".order__quantity").classList.add("disabled")
+
+    
+  }
+  if (product.promotion) {
+    document.querySelector(".info__pricing--price").innerHTML = product.promotion + " DA"
     document.querySelector(".info__pricing--before").innerHTML = `<strike>${product.price} DA</strike>`
+    document.querySelector(".info__pricing--discount").innerHTML = (100 - (product.promotion * 100 / product.price)).toFixed(2) + "%"
+
   } else {
     document.querySelector(".info__pricing--price").innerHTML = product.price + " DA"
     document.querySelector(".info__pricing--discount").style.display = "none"

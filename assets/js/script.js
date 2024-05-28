@@ -63,19 +63,13 @@ const showElemOnScroll = function () {
   }
 }
 
-
-// window.addEventListener("scroll", (e)=> {
-//   if (window.scrollY > 100) {
-//     header.classList.add("active");
-//     backTopBtn.classList.add("active");
-//   } else {
-//     header.classList.remove("active");
-//     backTopBtn.classList.remove("active");
-//   }
-// })
-
-
 addEventOnElem(window, "scroll", showElemOnScroll);
+
+addEventOnElem(document.querySelector(".log-out-btn"), "click", () => {
+  localStorage.removeItem("token")
+  localStorage.removeItem("userId")
+  window.location.href = window.location.href.replace("/pages/dashboard.html", "")
+})
 
 
 // *******************************************************************************************************
@@ -206,7 +200,13 @@ function addFeaturedProductsToHeroList(products) {
             <h3>
               <a href="/pages/product.html?id=${product.id}" class="card-title">${product.name}</a>
             </h3>
-            <p class="card-text">${product.category? product.category.name : ""}</p>
+            ${
+              product.promotion
+                ? `<del class="del">${product.price.toFixed(2)} DA</del>
+                   <data class="card-text" value="${product.promotion}">${product.promotion.toFixed(2)} DA</data>`
+                : `<data class="card-text" value="${product.price}">${product.price.toFixed(2)} DA</data>`
+            }
+
           </div>
         </div>
       `;
@@ -297,17 +297,16 @@ async function initialProducts() {
         <a  class="card-banner img-holder has-before" style="--width: 300; --height: 300;">
           <img src="${product.image}" width="300" height="300" loading="lazy" alt="${product.name}" class="img-cover">
           <ul class="card-action-list">
-            <li><button class="card-action-btn" aria-label="add to cart" title="add to cart"onclick=" location.href='/pages/product.html?id=${product.id}'">
+            <li><button class="card-action-btn" onclick=" location.href='/pages/product.html?id=${product.id}'">
               <ion-icon name="information-circle-outline" aria-hidden="true"></ion-icon></button></li>
 
-            <li><button class="card-action-btn add-to-cart-btn" aria-label="add to cart" title="add to cart">
+            <li><button class="card-action-btn add-to-cart-btn" ${product.countInStock == 0 ? "disabled" : ""}>
               <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon></button></li>
           </ul>
 
           ${product.countInStock === 0 ? '<div class="card-badge">Out of Stock</div>' : ''}
           <ul class="badge-list">
-            <!-- <li><div class="badge orange">Sale</div></li> --> 
-            ${product.promotion ? `<li><div class="badge cyan">-${product.promotion * 100 / product.price}%</div></li>` : ''}
+            ${product.promotion ? `<li><div class="badge orange">-${(100 - (product.promotion * 100 / product.price)).toFixed(0)}%</div></li>` : ''}
           </ul>
         </a>
         

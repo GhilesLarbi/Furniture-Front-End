@@ -65,7 +65,7 @@ async function initialProducts(noEmptyCartMsg = false) {
           `<p class="item__figure__price"><span class="figure__price--off">${product.promotion} DA</span> <span class="figure__price--crossed">${product.price} DA</span></p>` :
           `<p class="item__figure__price"><span class="figure__price--off">${product.price} DA</span></p>`
         }
-                        <p class="item__cont">${item.quantity}</p>
+                        <p class="item__cont">Quantity <span>${item.quantity}</span></p>
                     </figure>
       `
       wareContainer.appendChild(wareItem);
